@@ -11,7 +11,7 @@ int main()
 
     do
     {
-        srand(time(NULL))
+        srand(time(NULL));
         randNum1 = rand()%51 + 50; //random number between 50 - 100  inclusive
         randNum2 = rand()%51 + 50; 
 
