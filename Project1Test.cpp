@@ -1,7 +1,7 @@
 #include <iostream>
 
 using namespace std;
-//my name is cristian
+
 int main()
 {
     char userName;
