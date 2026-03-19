@@ -4,7 +4,30 @@ using namespace std;
 
 int main()
 {
-    char userName;
+    string userName;
+    bool userNameAccepted = false;
+	cout<<"Enter your username using letters, numbers, and spaces: "<<endl;
+	getline(cin, userName);
+	
+	while(userNameAccepted == false) //run loop while the username is considered not accepted
+	{
+		for(int i=0; i<userName.length(); ++i)
+		{
+			if(isalnum(userName.at(i)) || isspace(userName.at(i))) 
+			{
+				userNameAccepted=true; 
+			}
+			else //if its not a number an alphabetic character or a space it will do the else
+			{
+				cout<<"Username incorrect please re-enter: ";
+				getline(cin, userName); 
+				userNameAccepted = false; //set acceptable to false to run while loop again since it might have been changed to true on a previous character
+				break; //takes program out of for loop to the while loop which will run again starting character check at beginning of new string
+			}		
+		}
+	}
+	cout<<"Hello "<< userName<< "!"<< endl;
+
     int playerPoints = 50;
     int randNum1, randNum2;
     enum Menu {Multiply = 1, Divide = 2, Average = 3, Reveal = 4, GiveUp = 5, Exit = 6};
@@ -17,41 +40,55 @@ int main()
 
     } while (randNum1 > randNum2);
     //cout << randNum1 << " " << randNum2 << endl; This was to check output of numbers
+
+    bool stopPlaying = false;
     int menuChoice;
-    cout << "Enter your Menu Choice (1-6)" << endl;
-    cin >> menuChoice;
-     switch(menuChoice)
-     {
-        case Divide:
-            cout << "Guess the qoutient of the two randum numbers only input 2 numbers after decimal(Example 0.45)" << endl;
-            float guess;// float to get decimals
-            cin >> guess;
-            if(guess >= (randNum1/randNum2)-(0.5) && guess <= (randNum1/randNum2)+(0.5))
-            {
-                playerPoints = playerPoints + 5;
-                cout << "Your guess was correct and gain 5 points." << endl;
+
+    do
+    {
+
+        cout<<"1. Multiply"<< endl;
+		cout<<"2. Divide"<< endl;
+		cout<<"3. Average"<< endl;
+		cout<<"4. Reveal"<< endl;
+		cout<<"5. Giveup"<< endl;
+		cout<<"6. Exit"<< endl;
+		cout<<"Enter choice: ";
+		cin>>menuChoice;
+
+        switch(menuChoice)
+        {
+            case Divide:
+                cout << "Guess the qoutient of the two randum numbers only input 2 numbers after decimal(Example 0.45)" << endl;
+                float guess;// float to get decimals
+                cin >> guess;
+                if(guess >= (randNum1/randNum2)-(0.5) && guess <= (randNum1/randNum2)+(0.5))
+                {
+                    playerPoints = playerPoints + 5;
+                    cout << "Your guess was correct and gain 5 points." << endl;
+                    cout << "Current points: " << playerPoints << endl;
+                    cout << "Do you want to play again." << endl;               
+                }
+                else
+                {
+                    playerPoints = playerPoints - 1;
+                    cout << "Your guess was wrong you lose 1 point." << endl;
+                    cout << "Current points: " << playerPoints << endl;
+                }
+                cout << randNum1 / randNum2 << endl;
+                break;
+            case Reveal:
+                cout << "Using 3 points to reveal 1st number." << endl; 
+                cout << "The first number is " << randNum1 << endl;
+                playerPoints = playerPoints - 3 ;
                 cout << "Current points: " << playerPoints << endl;
-                cout << "Do you want to play again." << endl;               
-            }
-            else
-            {
-                playerPoints = playerPoints - 1;
-                cout << "Your guess was wrong you lose 1 point." << endl;
-                cout << "Current points: " << playerPoints << endl;
-            }
-            cout << randNum1 / randNum2 << endl;
-            break;
-        case Reveal:
-            cout << "Using 3 points to reveal 1st number." << endl; 
-            cout << "The first number is " << randNum1 << endl;
-            playerPoints = playerPoints - 3 ;
-            cout << "Current points: " << playerPoints << endl;
-            break;
-        case Exit:
-            cout << "Thanks for playing " << userName << " final score: " << playerPoints << endl;
-            cout << "Exiting the program" << endl;
-            break;
-     }
+                break;
+            case Exit:
+                cout << "Thanks for playing " << userName << " final score: " << playerPoints << endl;
+                cout << "Exiting the program" << endl;
+                break;
+        }
+    }while(stopPlaying == false);
 
     return 0;
 }
