@@ -4,12 +4,15 @@ using namespace std;
 
 int main()
 {
-    cout << "+-------------------------------------------------+"<< endl;
-    cout<< "|\t   Computer Science and Engineering\t   |" << endl;
-    cout<< "|\t    CSCE 1030 - Computer Science I\t    |"<< endl;
-    cout<< "|\tSamuel,Smethers-SAS0993-SamuelSmethers@my.unt.edu\t|" << endl;
-    cout<< "|\tCristian,Mireles-COM0066-CristianMireles@my.unt.edu\t|" << endl;
-    cout << "+-------------------------------------------------+"<< endl;
+    cout << "+-----------------------------------------------------+"<< endl;
+    cout<< "|\t     Computer Science and Engineering\t     |" << endl;
+    cout<< "|\t      CSCE 1030 - Computer Science I\t     |"<< endl;
+    cout<< "|  Samuel,Smethers-SAS0993-SamuelSmethers@my.unt.edu  |" << endl;
+    cout<< "| Cristian,Mireles-COM0066-CristianMireles@my.unt.edu |" << endl;
+    cout << "+-----------------------------------------------------+"<< endl;
+    cout<<endl;
+    cout<<endl;
+    cout<<endl;
 
     string userName;
     bool userNameAccepted = false; //variable to update wether the username is good or not
@@ -88,8 +91,9 @@ int main()
 				else
 				{
 					cout << "Your guess was wrong you lose 1 point." << endl;
+                    playerPoints-=1;
                     cout << "Current points: " << playerPoints << endl;
-					playerPoints-=1;
+					
 				}
                 break;
             case Divide:
@@ -165,7 +169,7 @@ int main()
             }
 			else
 			{
-				//if not restarting the game then no reset of points and no regeneration and will prompt menu again from main loop
+				stopPlaying==true; //if not restarting the game then no reset of points and no regeneration and will prompt menu again from main loop
 			}
         }
 		else
