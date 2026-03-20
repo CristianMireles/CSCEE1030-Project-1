@@ -93,7 +93,7 @@ int main()
                     playerPoints = playerPoints + 5;
                     cout << "Your guess was correct and gain 5 points." << endl;
                     cout << "Current points: " << playerPoints << endl;
-                    cout << "Do you want to play again." << endl;               
+                    correctAnswer=true;             
                 }
                 else
                 {
@@ -104,7 +104,21 @@ int main()
                 cout << randNum1 / randNum2 << endl;
                 break;
             case Average:
-                
+                cout<< "Enter your guess for the average of the two random numbers: ";
+				cin>>playerGuess;
+                if (((((randNum1 + randNum2)/2.0)-abs(playerGuess))<2.1) && ((((randNum1 + randNum2)/2.0)-abs(playerGuess))>-2.1))
+				{
+					cout<<"Your guess was close enough. You win."<< endl;
+					playerPoints+=5;
+					cout<< "Your updated points are: " << playerPoints<< endl;
+					correctAnswer=true;
+				}
+				else
+				{
+					cout << "Your guess was wrong you lose 1 point." << endl;
+                    cout << "Current points: " << playerPoints << endl;
+					playerPoints-=1;
+				}
                 break;
             case Reveal:
                 cout << "Using 3 points to reveal 1st number." << endl; 
