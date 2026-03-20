@@ -5,8 +5,8 @@ using namespace std;
 int main()
 {
     cout << "+-----------------------------------------------------+"<< endl;
-    cout<< "|\t     Computer Science and Engineering\t     |" << endl;
-    cout<< "|\t      CSCE 1030 - Computer Science I\t     |"<< endl;
+    cout<< "|\t     Computer Science and Engineering \t     |" << endl;
+    cout<< "|\t      CSCE 1030 - Computer Science I \t     |"<< endl;
     cout<< "|  Samuel,Smethers-SAS0993-SamuelSmethers@my.unt.edu  |" << endl;
     cout<< "| Cristian,Mireles-COM0066-CristianMireles@my.unt.edu |" << endl;
     cout << "+-----------------------------------------------------+"<< endl;
@@ -112,7 +112,7 @@ int main()
                     cout << "Your guess was wrong you lose 1 point." << endl;
                     cout << "Current points: " << playerPoints << endl;
                 }
-                cout << randNum1 / randNum2 << endl;
+                
                 break;
             case Average:
                 cout<< "Enter your guess for the average of the two random numbers: ";
@@ -138,6 +138,10 @@ int main()
                 playerPoints = playerPoints - 3 ;
                 cout << "Current points: " << playerPoints << endl;
                 revealNum=true;
+                break;
+            case GiveUp:
+                cout<< "Your random numbers were " << randNum1 << "and " << randNum2 <<endl;
+                correctAnswer=true;
                 break;
             case Exit:
                 cout << "Thanks for playing " << userName << " final score: " << playerPoints << endl;
@@ -166,10 +170,14 @@ int main()
 			
 				cout<<"Your random numbers have been regenerated."<< endl;//generate random integers ends this line
 				playerPoints=50; // reset the game points since they have restarted
+                correctAnswer= false;
+                revealNum=false;
             }
 			else
 			{
 				stopPlaying==true; //if not restarting the game then no reset of points and no regeneration and will prompt menu again from main loop
+                cout<< "Your final point were: " << playerPoints;
+                cout<< "Thanks for playing " << userName;
 			}
         }
 		else
