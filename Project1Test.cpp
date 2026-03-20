@@ -136,6 +136,34 @@ int main()
                 cout << "Wrong choice. Please enter again."<< endl;
         }
         cout<< endl;
+
+        if(correctAnswer == true)
+		{
+			cout<<"Do you want to restart the game Y/N: ";
+			cin>>restartGame;
+			cout<< endl;
+			if(restartGame==true)//if the user chose to restart the game regenerate numbers and reset points
+			{
+				do
+                {
+                srand(time(NULL));
+                randNum1 = rand()%51 + 50; //random number between 50 - 100  inclusive
+                randNum2 = rand()%51 + 50; 
+
+                } while (randNum1 > randNum2);
+			
+				cout<<"Your random numbers have been regenerated."<< endl;//generate random integers ends this line
+				playerPoints=50; // reset the game points since they have restarted
+            }
+			else
+			{
+				//if not restarting the game then no reset of points and no regeneration and will prompt menu again from main loop
+			}
+        }
+		else
+		{
+			//if incorrect answer then will not update anything here and will continue main loop 
+		}
     }while(stopPlaying == false);
 
     return 0;
