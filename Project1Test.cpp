@@ -43,7 +43,7 @@ int main()
     bool stopPlaying = false; // if they chose to stop playing update this to true
     bool revealNum = false; // if user choses to reveal number update this variable to have the value revealed
     bool correctAnswer = false; // update if they get correct so that we can ask further question about restarting
-    char restartGame; // if user wins ask if they want to restart the game and update this variable
+    char restartGame = 'n'; // if user wins ask if they want to restart the game and update this variable
 
     int playerPoints = 50; //intialize thier points update throughout game
     int menuChoice; //collect users choice for game
@@ -142,7 +142,7 @@ int main()
 			cout<<"Do you want to restart the game Y/N: ";
 			cin>>restartGame;
 			cout<< endl;
-			if(restartGame==true)//if the user chose to restart the game regenerate numbers and reset points
+			if(toupper(restartGame)=='Y')//if the user chose to restart the game regenerate numbers and reset points
 			{
 				do
                 {
