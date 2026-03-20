@@ -5,8 +5,8 @@ using namespace std;
 int main()
 {
     cout << "+-----------------------------------------------------+"<< endl;
-    cout<< "|\t     Computer Science and Engineering \t     |" << endl;
-    cout<< "|\t      CSCE 1030 - Computer Science I \t     |"<< endl;
+    cout<< "|\t     Computer Science and Engineering \t      |" << endl;
+    cout<< "|\t      CSCE 1030 - Computer Science I \t      |"<< endl;
     cout<< "|  Samuel,Smethers-SAS0993-SamuelSmethers@my.unt.edu  |" << endl;
     cout<< "| Cristian,Mireles-COM0066-CristianMireles@my.unt.edu |" << endl;
     cout << "+-----------------------------------------------------+"<< endl;
@@ -133,14 +133,21 @@ int main()
 				}
                 break;
             case Reveal:
-                cout << "Using 3 points to reveal 1st number." << endl; 
-                cout << "The first number is " << randNum1 << endl;
-                playerPoints = playerPoints - 3 ;
-                cout << "Current points: " << playerPoints << endl;
-                revealNum=true;
+                if(revealNum==true)
+                {
+                    cout<<"You've already revealed the first number."<<endl;
+                }
+                else
+                {
+                    cout << "Using 3 points to reveal 1st number." << endl; 
+                    cout << "The first number is " << randNum1 << endl;
+                    playerPoints = playerPoints - 3 ;
+                    cout << "Current points: " << playerPoints << endl;
+                    revealNum=true;
+                }
                 break;
             case GiveUp:
-                cout<< "Your random numbers were " << randNum1 << "and " << randNum2 <<endl;
+                cout<< "Your random numbers were " << randNum1 << " and " << randNum2 <<endl;
                 correctAnswer=true;
                 break;
             case Exit:
