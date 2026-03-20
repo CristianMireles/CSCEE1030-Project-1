@@ -123,8 +123,9 @@ int main()
 				else
 				{
 					cout << "Your guess was wrong you lose 1 point." << endl;
+                    playerPoints-=1;
                     cout << "Current points: " << playerPoints << endl;
-					playerPoints-=1;
+					
 				}
                 break;
             case Reveal:
