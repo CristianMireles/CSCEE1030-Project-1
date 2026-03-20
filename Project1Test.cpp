@@ -4,6 +4,13 @@ using namespace std;
 
 int main()
 {
+    cout << "+-------------------------------------------------+"<< endl;
+    cout<< "|\t   Computer Science and Engineering\t   |" << endl;
+    cout<< "|\t    CSCE 1030 - Computer Science I\t    |"<< endl;
+    cout<< "|\tSamuel,Smethers-SAS0993-SamuelSmethers@my.unt.edu\t|" << endl;
+    cout<< "|\tCristian,Mireles-COM0066-CristianMireles@my.unt.edu\t|" << endl;
+    cout << "+-------------------------------------------------+"<< endl;
+
     string userName;
     bool userNameAccepted = false; //variable to update wether the username is good or not
 	cout<<"Enter your username using letters, numbers, and spaces: "<<endl;
