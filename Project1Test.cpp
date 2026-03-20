@@ -42,7 +42,7 @@ int main()
 
     bool stopPlaying = false; // if they chose to stop playing update this to true
     bool revealNum = false; // if user choses to reveal number update this variable to have the value revealed
-    bool correctAnswer == false; // update if they get correct so that we can ask further question about restarting
+    bool correctAnswer = false; // update if they get correct so that we can ask further question about restarting
     char restartGame; // if user wins ask if they want to restart the game and update this variable
 
     int playerPoints = 50; //intialize thier points update throughout game
@@ -61,7 +61,7 @@ int main()
 		cout<<"6. Exit"<< endl;
         if(revealNum == true)
         {
-            cout<< "The first random number is " << randNum1;
+            cout<< "The first random number is " << randNum1<< endl;
         }
 		cout<<"Enter choice: ";
 		cin>>menuChoice;
@@ -80,14 +80,15 @@ int main()
 				}
 				else
 				{
-					cout<< "Wrong guess. " << endl;
+					cout << "Your guess was wrong you lose 1 point." << endl;
+                    cout << "Current points: " << playerPoints << endl;
 					playerPoints-=1;
 				}
                 break;
             case Divide:
-                cout << "Guess the qoutient of the two randum numbers only input 2 numbers after decimal(Example 0.45)" << endl;
+                cout << "Guess the qoutient of the two randum numbers only input 2 numbers after decimal(Example 0.45): ";
                 cin >> playerGuess;
-                if(guess >= (randNum1/randNum2)-(0.5) && playerGuess <= (randNum1/randNum2)+(0.5))
+                if(playerGuess >= (randNum1/randNum2)-(0.5) && playerGuess <= (randNum1/randNum2)+(0.5))
                 {
                     playerPoints = playerPoints + 5;
                     cout << "Your guess was correct and gain 5 points." << endl;
@@ -110,6 +111,7 @@ int main()
                 cout << "The first number is " << randNum1 << endl;
                 playerPoints = playerPoints - 3 ;
                 cout << "Current points: " << playerPoints << endl;
+                revealNum=true;
                 break;
             case Exit:
                 cout << "Thanks for playing " << userName << " final score: " << playerPoints << endl;
