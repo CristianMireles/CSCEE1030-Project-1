@@ -192,6 +192,13 @@ int main()
 		{
 			//if incorrect answer then will not update anything here and will continue main loop 
 		}
+
+        if(playerPoints<0)
+        {
+            cout<< "You have lost exiting the game now."<< endl;
+            cout<< "Thanks for playing"<<endl:
+            stopPlaying=true;
+        }
     }while(stopPlaying == false);
 
     return 0;
