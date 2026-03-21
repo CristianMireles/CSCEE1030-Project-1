@@ -48,6 +48,7 @@ int main()
         randNum2 = rand()%51 + 50; 
 
     } while (randNum1 > randNum2);
+    cout<<"Your random numbers have been generated."<< endl;
     //cout << randNum1 << " " << randNum2 << endl; This was to check output of numbers
 
     bool stopPlaying = false; // if they chose to stop playing update this to true
@@ -183,7 +184,7 @@ int main()
 			else
 			{
 				stopPlaying=true; //if not restarting the game then no reset of points and no regeneration and will prompt menu again from main loop
-                cout<< "Your final point were: " << playerPoints << endl;
+                cout<< "Your final points were: " << playerPoints << endl;
                 cout<< "Thanks for playing " << userName;
 			}
         }
