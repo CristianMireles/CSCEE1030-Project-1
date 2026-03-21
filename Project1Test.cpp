@@ -161,7 +161,7 @@ int main()
         }
         cout<< endl;
 
-        if(correctAnswer == true)
+        if(correctAnswer == true) //restart game section
 		{
 			cout<<"Do you want to restart the game Y/N: ";
 			cin>>restartGame;
