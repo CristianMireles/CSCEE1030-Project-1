@@ -196,7 +196,7 @@ int main()
         if(playerPoints<0)
         {
             cout<< "You have lost exiting the game now."<< endl;
-            cout<< "Thanks for playing"<<endl:
+            cout<< "Thanks for playing"<<endl;
             stopPlaying=true;
         }
     }while(stopPlaying == false);
